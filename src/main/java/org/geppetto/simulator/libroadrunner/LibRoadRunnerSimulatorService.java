@@ -69,12 +69,14 @@ public class LibRoadRunnerSimulatorService extends ASimulator
 	public void initialize(List<IModel> models, ISimulatorCallbackListener listener) throws GeppettoInitializationException, GeppettoExecutionException
 	{
 		super.initialize(models, listener);
+		//TODO: Using the libRoadRunner library initialize the simulator given the model
+		//models.get(0).get(ModelFormat.SBML) would return the SBML document
 	}
 
 	@Override
 	public void simulate(IRunConfiguration arg0, AspectNode aspect) throws GeppettoExecutionException
 	{
-
+		//TODO: Use the libRoadRunner library to run the simulation of the given model
 	}
 
 
