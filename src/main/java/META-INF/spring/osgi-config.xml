@@ -11,12 +11,12 @@
        						http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
 	<!-- Exports the service implementation to other bundles by its service interface -->
-	<osgi:service id="LibRoadRunnerExporter" ref="LibRoadRunnerSimulatorService" interface="org.geppetto.core.simulator.ISimulator">
+	<osgi:service id="LibRoadRunnerExporter" ref="libRoadRunnerSimulatorService" interface="org.geppetto.core.simulator.ISimulator">
 		<osgi:service-properties>
 			<entry key="discoverableID" value="libRoadRunnerSimulator" />
 		</osgi:service-properties>
 	</osgi:service>
-	<bean id="LibRoadRunnerSimulatorService" scope="thread" class="org.geppetto.simulator.libroadrunner.LibRoadRunnerSimulatorService">
+	<bean id="libRoadRunnerSimulatorService" scope="thread" class="org.geppetto.simulator.libroadrunner.LibRoadRunnerSimulatorService">
 	<aop:scoped-proxy proxy-target-class="false"/>
 	</bean>
 	
