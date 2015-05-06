@@ -82,13 +82,14 @@ public class LibRoadRunnerUpdateSimulationTreeVisitor extends DefaultStateVisito
 	@Override
 	public boolean outAspectSubTreeNode(AspectSubTreeNode node)
 	{
-		if(node.getType().equals(AspectTreeType.WATCH_TREE) && _modifiedSimulationTree)
-		{
+		if (node.getType().equals(AspectTreeType.SIMULATION_TREE)
+				&& _modifiedSimulationTree) {
 			node.setModified(true);
 			_modifiedSimulationTree = false;
 			AspectNode aspectNode = (AspectNode) node.getParent();
 			aspectNode.setModified(true);
-			((EntityNode) aspectNode.getParentEntity()).updateParentEntitiesFlags(true);
+			((EntityNode) aspectNode.getParentEntity())
+					.updateParentEntitiesFlags(true);
 		}
 		return super.outAspectSubTreeNode(node);
 	}
