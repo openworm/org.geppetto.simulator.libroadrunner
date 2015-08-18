@@ -45,7 +45,10 @@ import org.geppetto.core.model.ModelWrapper;
 import org.geppetto.core.model.runtime.AspectNode;
 import org.geppetto.core.services.IModelFormat;
 import org.geppetto.core.services.registry.ServicesRegistry;
+import org.geppetto.core.utilities.URLReader;
 import org.springframework.stereotype.Service;
+// import roadrunner.*;
+import roadrunner.RoadRunner;
 
 /**
  * @author kylemedley
@@ -57,6 +60,7 @@ public class SBMLModelInterpreterService extends AModelInterpreter
 {
 
 	private static Log _logger = LogFactory.getLog(SBMLModelInterpreterService.class);
+// 	private RoadRunner;
 
 //	@Autowired
 //	private ModelInterpreterConfig libRoadRunnerModelInterpreterConfig;
@@ -73,6 +77,9 @@ public class SBMLModelInterpreterService extends AModelInterpreter
 		//this object model conceptually is usually independent from the simulator
 		//1. we first create the model
 		//2. we wrap it into the model wrapper model.wrapModel(ModelFormat.SBML, sbmlDocument);
+
+// 		RoadRunner rr = RoadRunner(URLReader.readStringFromURL(url));
+// 		model.wrapModel(ModelFormat.SBML, rr);
 		return model;
 	}
 

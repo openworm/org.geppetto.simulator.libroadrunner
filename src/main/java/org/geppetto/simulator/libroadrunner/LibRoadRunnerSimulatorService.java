@@ -49,7 +49,10 @@ import org.geppetto.core.simulation.ISimulatorCallbackListener;
 import org.geppetto.core.simulator.ASimulator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import roadrunner.*;
+import roadrunner.RoadRunner;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * 
@@ -60,6 +63,10 @@ import roadrunner.*;
 @Service
 public class LibRoadRunnerSimulatorService extends ASimulator
 {
+
+    private Log log = LogFactory.getLog(LibRoadRunnerSimulatorService.class);
+
+//     private RoadRunner rr;
 
 	@Autowired
 	private SimulatorConfig libRoadRunnerSimulatorConfig;
@@ -72,12 +79,14 @@ public class LibRoadRunnerSimulatorService extends ASimulator
 		super.initialize(models, listener);
 		//TODO: Using the libRoadRunner library initialize the simulator given the model
 		//models.get(0).get(ModelFormat.SBML) would return the SBML document
+// 		rr = models.get(0).get(ModelFormat.SBML); // returns RoadRunner instance
 	}
 
 	@Override
 	public void simulate(IRunConfiguration arg0, AspectNode aspect) throws GeppettoExecutionException
 	{
 		//TODO: Use the libRoadRunner library to run the simulation of the given model
+		// use rr for simulator
 	}
 
 
@@ -99,6 +108,7 @@ public class LibRoadRunnerSimulatorService extends ASimulator
 		List<IModelFormat> modelFormatList = new ArrayList<IModelFormat>();
 		modelFormatList.add(ModelFormat.SBML);
 		ServicesRegistry.registerSimulatorService(this, modelFormatList);
+		log.info("libroadrunner: registerGeppettoService");
 	}
 
 }
