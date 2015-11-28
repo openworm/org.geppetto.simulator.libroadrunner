@@ -51,6 +51,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import roadrunner.RoadRunner;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 /**
  * 
  * @author kylemedley
@@ -61,20 +64,20 @@ import roadrunner.RoadRunner;
 public class LibRoadRunnerSimulatorService extends ASimulator
 {
 
-    private Log log = LogFactory.getLog(LibRoadRunnerSimulatorService.class);
+    private Logger logger = Logger.getLogger(LibRoadRunnerSimulatorService.class);
 
 //     private RoadRunner rr;
 
 	@Autowired
 	private SimulatorConfig libRoadRunnerSimulatorConfig;
 
-	private static Log _logger = LogFactory.getLog(LibRoadRunnerSimulatorService.class);
+	private static Logger _logger = Logger.getLogger(LibRoadRunnerSimulatorService.class);
 
 	@Override
 	public void initialize(List<IModel> models, ISimulatorCallbackListener listener) throws GeppettoInitializationException, GeppettoExecutionException
 	{
 		super.initialize(models, listener);
-        log.error("libroadrunner: initialize");
+        logger.error("libroadrunner: initialize");
 		//TODO: Using the libRoadRunner library initialize the simulator given the model
 		//models.get(0).get(ModelFormat.SBML) would return the SBML document
 // 		rr = models.get(0).get(ModelFormat.SBML); // returns RoadRunner instance
@@ -106,7 +109,7 @@ public class LibRoadRunnerSimulatorService extends ASimulator
 		List<IModelFormat> modelFormatList = new ArrayList<IModelFormat>();
 		modelFormatList.add(ModelFormat.SBML);
 		ServicesRegistry.registerSimulatorService(this, modelFormatList);
-		log.error("libroadrunner: registerGeppettoService");
+		logger.error("libroadrunner: registerGeppettoService");
 	}
 
 }
